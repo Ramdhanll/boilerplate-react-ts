@@ -8,13 +8,14 @@ import {
    UnorderedList,
    useToast,
    VStack,
+   Link as LinkCUI,
 } from '@chakra-ui/react'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import { FormikInput, FormikPassword } from '../../helpers/Formik'
 import AuthService from '../../services/auth'
 import logging from '../../config/logging'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 interface IRegister {}
 
@@ -126,6 +127,11 @@ const Register: FC<IRegister> = () => {
                   </Form>
                )}
             </Formik>
+            <Box mt={4}>
+               <Link to='/login' style={{ cursor: 'pointer' }}>
+                  <LinkCUI>sign in</LinkCUI>
+               </Link>
+            </Box>
          </Box>
       </Center>
    )

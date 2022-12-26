@@ -1,13 +1,13 @@
 import React, { FC, useContext } from 'react'
-import { Navigate } from 'react-router-dom'
+import { Navigate } from 'react-router'
 import logging from '../../config/logging'
 import UserContext from '../../contexts/user'
 
-export interface IAuthRouteProps {}
+export interface IAuthRouteProps {
+   children?: JSX.Element
+}
 
-const AuthRoute: FC<IAuthRouteProps> = (props) => {
-   const { children } = props
-
+const AuthRoute: FC<IAuthRouteProps> = ({ children }) => {
    const { userState } = useContext(UserContext)
 
    if (userState.user._id === '') {

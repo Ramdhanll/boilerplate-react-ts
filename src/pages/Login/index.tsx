@@ -8,6 +8,7 @@ import {
    UnorderedList,
    useToast,
    VStack,
+   Link as LinkCUI,
 } from '@chakra-ui/react'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
@@ -15,7 +16,7 @@ import { FormikInput, FormikPassword } from '../../helpers/Formik'
 import AuthService from '../../services/auth'
 import logging from '../../config/logging'
 import UserContext from '../../contexts/user'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 interface ILogin {}
 
@@ -110,6 +111,7 @@ const Login: FC<ILogin> = () => {
                            variant='solid'
                            colorScheme='blue'
                            w='100%'
+                           mb={5}
                         >
                            Masuk
                         </Button>
@@ -117,6 +119,12 @@ const Login: FC<ILogin> = () => {
                   </Form>
                )}
             </Formik>
+
+            <Box mt={4}>
+               <Link to='/register' style={{ cursor: 'pointer' }}>
+                  <LinkCUI>sign up</LinkCUI>
+               </Link>
+            </Box>
          </Box>
       </Center>
    )

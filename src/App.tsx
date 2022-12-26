@@ -1,8 +1,7 @@
 import React, { useEffect, useReducer, useState } from 'react'
 import './App.css'
-import { Route, Routes } from 'react-router-dom'
-import routes from './routes'
-import AuthRoute from './components/AuthRoute'
+import { RouterProvider } from 'react-router-dom'
+import { router } from './routes'
 import {
    initialUserState,
    UserContextProvider,
@@ -60,31 +59,7 @@ function App() {
    return (
       <div className='App'>
          <UserContextProvider value={{ userState, userDispatch }}>
-            <Routes>
-               {routes.map((route, index) => {
-                  if (route.auth) {
-                     return (
-                        <Route
-                           key={index}
-                           path={route.path}
-                           element={
-                              <AuthRoute>
-                                 <route.component />
-                              </AuthRoute>
-                           }
-                        />
-                     )
-                  }
-
-                  return (
-                     <Route
-                        key={index}
-                        path={route.path}
-                        element={<route.component />}
-                     />
-                  )
-               })}
-            </Routes>
+            <RouterProvider router={router} />
          </UserContextProvider>
       </div>
    )

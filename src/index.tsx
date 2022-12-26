@@ -12,9 +12,7 @@ axios.defaults.withCredentials = true
 
 ReactDOM.render(
    <ChakraProvider theme={theme}>
-      <BrowserRouter>
-         <App />
-      </BrowserRouter>
+      <App />
    </ChakraProvider>,
    document.getElementById('root')
 )
